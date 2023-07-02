@@ -6,14 +6,14 @@ services:
     ports:
       - "5432:5432"
   daily-quote-keycloak:
-    image: quay.io/keycloak/keycloak
+    image: heik2718/daily-quotes-keycloak
+    #    image: quay.io/keycloak/keycloak
     ports:
       - "8188:8080"
     environment:
       KEYCLOAK_ADMIN: admin 
       KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - /opt/keycloak/data:/home/heike/examples/daily-quotes/log
     command: 
       - start-dev 
-      - --import-realm
-    volumes:
-      - /home/keycloak/realm.json:/opt/keycloak/data/import/realm.json

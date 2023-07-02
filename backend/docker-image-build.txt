@@ -1,0 +1,1 @@
+docker image build -t heik2718/daily-quotes-keycloak .
