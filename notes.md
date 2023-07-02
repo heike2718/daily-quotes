@@ -7,6 +7,7 @@ The quarkus-oidc dependency is indeed sufficient to trigger the verification of 
 If you set the log level of io.quarkus.oidc.runtime to DEBUG, and send a request with an expired JWT to the backend (e.g. with POSTMAN), you can see how it is verified:
 
 ```
+2023-07-02 10:48:55,728 DEBUG [io.qua.oid.run.OidcIdentityProvider] (vert.x-eventloop-thread-2) Starting creating SecurityIdentity
 2023-07-02 10:48:55,732 DEBUG [io.qua.oid.run.OidcIdentityProvider] (vert.x-eventloop-thread-2) Verifying the JWT token with the local JWK keys
 2023-07-02 10:48:55,817 DEBUG [io.qua.oid.run.OidcProvider] (vert.x-eventloop-thread-2) Verification of the token issued to client backend has failed: The JWT is no longer valid - the evaluation time NumericDate{1688287735 -> 02.07.2023, 10:48:55 MESZ} is on or after the Expiration Time (exp=NumericDate{1688281188 -> 02.07.2023, 08:59:48 MESZ}) claim value.
 ```
